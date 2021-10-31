@@ -18,25 +18,19 @@ export default {
       let alpha = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
       let numbers = "0123456789";
       let symbols = "!@#$%^&*_-+=";
-      let defaultLength = 8;
-      let customLength = payload.customLength;
-      let lengthToUse = 8;
-      let hasCustomLength;
+      let length = payload.length;
+
       let hasNumbers = true;
       let hasSymbols = true;
 
       let chars = alpha;
-
-      hasCustomLength > 8
-        ? (lengthToUse = customLength)
-        : (lengthToUse = defaultLength);
 
       hasNumbers ? (chars += numbers) : "";
       hasSymbols ? (chars += symbols) : "";
 
       let newPassword = "";
 
-      for (let i = 0; i < lengthToUse; i++) {
+      for (let i = 0; i < length; i++) {
         newPassword += chars.charAt(Math.floor(Math.random() * chars.length));
       }
 

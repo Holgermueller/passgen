@@ -9,8 +9,12 @@
             <PasswordDisplay />
 
             <v-form>
-              <h2>Length</h2>
-              <v-text-field type="number" v-model="customLength">
+              <v-text-field
+                label="Length"
+                type="number"
+                v-model="length"
+                outlined
+              >
               </v-text-field>
               <h2>Numbers?</h2>
               <h2>Symbols?</h2>
@@ -43,16 +47,16 @@ export default {
   },
 
   data: () => ({
-    customLength: 8,
+    length: 8,
     hasNumbers: true,
     hasSymbols: true,
   }),
 
   methods: {
     generatePassword() {
-      console.log(this.customLength);
+      console.log(this.length);
       this.$store.dispatch("generatePassword", {
-        customLength: this.customLength,
+        length: this.length,
       });
     },
   },
