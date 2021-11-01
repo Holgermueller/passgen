@@ -20,8 +20,8 @@ export default {
       let symbols = "!@#$%^&*_-+=";
       let length = payload.length;
 
-      let hasNumbers = true;
-      let hasSymbols = true;
+      let hasNumbers = payload.hasNumbers;
+      let hasSymbols = payload.hasSymbols;
 
       let chars = alpha;
 

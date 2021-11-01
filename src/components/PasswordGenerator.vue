@@ -16,8 +16,8 @@
                 outlined
               >
               </v-text-field>
-              <h2>Numbers?</h2>
-              <h2>Symbols?</h2>
+              <v-switch v-model="hasNumbers" label="Has Numbers?"></v-switch>
+              <v-switch v-model="hasSymbols" label="Has Symbols?"></v-switch>
             </v-form>
           </v-card-text>
 
@@ -54,9 +54,11 @@ export default {
 
   methods: {
     generatePassword() {
-      console.log(this.length);
+      console.log(this.hasNumbers);
       this.$store.dispatch("generatePassword", {
         length: this.length,
+        hasNumbers: this.hasNumbers,
+        hasSymbols: this.hasSymbols,
       });
     },
   },
