@@ -54,7 +54,6 @@ export default {
 
   methods: {
     generatePassword() {
-      console.log(this.hasNumbers);
       this.$store.dispatch("generatePassword", {
         length: this.length,
         hasNumbers: this.hasNumbers,

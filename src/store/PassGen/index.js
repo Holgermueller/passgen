@@ -4,10 +4,6 @@ export default {
   },
 
   mutations: {
-    // CLEAR_PASSWORD(state) {
-    //   state.password = "";
-    // },
-
     SET_PASSWORD(state, payload) {
       state.password = payload;
     },
