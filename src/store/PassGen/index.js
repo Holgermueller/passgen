@@ -1,6 +1,6 @@
 export default {
   state: {
-    password: "password here",
+    password: "Password appears here",
   },
 
   mutations: {
