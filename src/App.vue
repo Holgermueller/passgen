@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-main>
+    <v-main class="main-background">
       <PasswordGenerator />
     </v-main>
   </v-app>
@@ -21,3 +21,9 @@ export default {
   }),
 };
 </script>
+
+<style scoped>
+.main-background {
+  background-color: #000080;
+}
+</style>

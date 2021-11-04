@@ -66,7 +66,7 @@ export default {
 
 <style scoped>
 .password-card {
-  margin: 15% auto;
+  margin: 7% auto;
 }
 
 .copy {
