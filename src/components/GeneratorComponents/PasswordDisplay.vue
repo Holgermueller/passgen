@@ -63,8 +63,4 @@ export default {
   border-color: black;
   border-width: 2px;
 }
-
-.v-input__icon--append .v-icon {
-  color: purple;
-}
 </style>

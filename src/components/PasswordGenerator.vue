@@ -24,6 +24,7 @@
           <v-card-actions>
             <v-btn
               @click.prevent="generatePassword"
+              :disabled="tooFewChars"
               elevation="0"
               dark
               block
@@ -57,6 +58,14 @@ export default {
     hasNumbers: true,
     hasSymbols: true,
   }),
+
+  computed: {
+    tooFewChars() {
+      return (
+        this.length <= 6 || this.length == null || this.length == undefined
+      );
+    },
+  },
 
   methods: {
     generatePassword() {
