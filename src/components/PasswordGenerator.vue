@@ -10,7 +10,7 @@
 
             <v-form>
               <v-text-field
-                label="Length"
+                label="Length of characters"
                 type="number"
                 v-model="length"
                 outlined
@@ -22,7 +22,13 @@
           </v-card-text>
 
           <v-card-actions>
-            <v-btn @click.prevent="generatePassword" elevation="0" dark block>
+            <v-btn
+              @click.prevent="generatePassword"
+              elevation="0"
+              dark
+              block
+              color="primary"
+            >
               Generate!
             </v-btn>
           </v-card-actions>

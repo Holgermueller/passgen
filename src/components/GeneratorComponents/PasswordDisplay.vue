@@ -1,20 +1,39 @@
 <template>
   <div>
-    <v-text-field
-      v-on:focus="$event.target.select()"
-      :value="generatedPassword"
-      ref="passwordToCopy"
-      append-icon="mdi-clipboard"
-      @click:append="copyToClipboard"
-      readonly
-    >
-    </v-text-field>
+    <v-tooltip v-model="show" right>
+      <template v-slot:activator="{ on, attrs }">
+        <v-text-field
+          v-on:focus="$event.target.select()"
+          :value="generatedPassword"
+          ref="passwordToCopy"
+          append-icon="mdi-clipboard"
+          @click:append="
+            copyToClipboard();
+            showMessage();
+          "
+          readonly
+          outlined
+          class="centered-text"
+          background-color="ivory"
+          color="black"
+          v-bind:append="attrs"
+          v-on:append="on"
+        >
+        </v-text-field>
+      </template>
+
+      <span>Copied!</span>
+    </v-tooltip>
   </div>
 </template>
 
 <script>
 export default {
   name: "PasswordDisplay",
+
+  data: () => ({
+    show: false,
+  }),
 
   computed: {
     generatedPassword() {
@@ -27,15 +46,25 @@ export default {
       this.$refs.passwordToCopy.focus();
       document.execCommand("copy");
     },
+
+    showMessage() {
+      return (this.show = !this.show);
+    },
   },
 };
 </script>
 
 <style scoped>
-.password-display {
-  border: 1px solid black;
-  border-radius: 15px;
-  margin: 2px auto 8px;
-  height: 44px;
+.centered-text >>> input {
+  text-align: center;
+}
+
+.v-text-field--outlined >>> fieldset {
+  border-color: black;
+  border-width: 2px;
+}
+
+.v-input__icon--append .v-icon {
+  color: purple;
 }
 </style>
