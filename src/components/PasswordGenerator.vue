@@ -13,6 +13,7 @@
                 label="Length of characters"
                 type="number"
                 v-model="length"
+                :rules="rules.length"
                 outlined
               >
               </v-text-field>
@@ -57,12 +58,19 @@ export default {
     length: 8,
     hasNumbers: true,
     hasSymbols: true,
+    rules: {
+      length: [
+        (val) =>
+          (val || "").length > 7 ||
+          "Your password should be longer than 7 characters.",
+      ],
+    },
   }),
 
   computed: {
     tooFewChars() {
       return (
-        this.length <= 6 || this.length == null || this.length == undefined
+        this.length <= 7 || this.length == null || this.length == undefined
       );
     },
   },
